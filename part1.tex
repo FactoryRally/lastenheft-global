@@ -1,0 +1,175 @@
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Lastenheft}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\chapter{Zielbestimmung}
+
+\emph{RoboRally} ist ein älteres Brettspiel (als 1994), in dem Roboter programmiert werden müssen und ein Spielfeld mit Hindernissen durchlaufen sollen.
+Die zugehörige Spielanleitung ist online verfügbar \cite{roborally_rulebook}.
+Es gibt bereits digitale Versionen dieses Spiels \cite{roborally_java} sowie eine Implementierung mit \enquote{echten} Robotern  \cite{make_roborally, roboruckus_git, roboruckus_web}.
+
+Ziel dieses Projektes ist es, eine \enquote{moderne} und plattformunabhängige Implementierung dieses Spiels zu realisieren. Diese Implementierung soll aus mehreren Teilen bestehen:
+
+\begin{description}
+    \item[Simulierte Umgebung:] die Spielumgebung und die Roboter sollen simuliert werden.
+    Die Darstellung kann zweidimensional von oben (z.B. für die Darstellung im Web) oder dreidimensional mit einer Game-Engine (z.B. für mobile Apps oder Desktop Applikationen) realisiert werden.
+
+    \item[Realisierung in Hardware:] die Spielumgebung und die Roboter existieren real, entsprechende Spielbretter und Roboter müssen gefertigt werden.
+    Eine entsprechende Überwachung muss stattfinden.
+\end{description}
+
+Das Spiel soll in der Simulation mit einem Web-Interface, mit einer mobilen App und mit einer Desktop-Anwendung bedienbar sein.
+Spiele sollen von Spielern mit unterschiedlichen Front-Ends gemeinsam gespielt werden können.
+In der mobilen App und in der Desktop-Anwendung sollen auch Peer-to-Peer Spiele (d.h. ohne zentralen Server) möglich sein.
+
+Das Spiel in der Hardware-Realisierung soll mit \emph{der gleichen} mobilen App bzw. Desktop-Anwendung bedienbar sein.
+
+Zusätzlich sollen über die Website auch Wettbewerbe geplant und durchgeführt werden können.
+
+
+\chapter{Produkteinsatz}
+
+TODO
+
+
+\chapter{Produktfunktionen}
+
+Hier soll ein grober Überblick über die geforderte Funktionalität des Projektes gegeben werden\footnote{diese sind hier bewusst kurz gehalten, da diese als Übung aus den Spielregeln abgeleitet werden sollen}:
+
+\section[Spiel erstellen]{Spiel erstellen\hfill \emph{LF-10}}
+
+Als Spieler möchte ich ein Spiel erstellen (Multiplayer-Spiel, maximale Anzahl von Teilnehmern festlegen, KI-Spieler festlegen, Szenario/Spielbrett auswählen).
+    
+\section[Spiel beitreten]{Spiel beitreten\hfill \emph{LF-20}}
+
+Als Spieler möchte ich einem Spiel beitreten (ein zufälliges Spiel, ein bestimmtes Spiel mittels z.B. QR-Code o.ä.).
+    
+\section[Spiel spielen]{Spiel spielen\hfill \emph{LF-30}}
+
+Als Spieler möchte ich ein Spiel bestreiten (in der Simulation: Website, App, Anwendung; in realer Hardware).
+
+\section[Replay ansehen]{Replay ansehen\hfill \emph{LF-40}}
+
+Als Spieler möchte ich ein Replay von einem Spiel ansehen.
+
+\section[An Wettbewerb teilnehmen]{An Wettbewerb teilnehmen\hfill \emph{LF-50}}
+
+Als Spieler möchte ich an einem Wettbewerb teilnehmen und die Ergebnisse sehen.
+
+\section[Wettbewerb erstellen]{Wettbewerb erstellen\hfill \emph{LF-60}}
+
+Als Spielleiter möchte ich einen Wettbewerb erstellen können und diesen auswerten.
+
+
+
+\chapter{Produktdaten}
+
+\section[Schnittstellen]{Schnittstellen\hfill \emph{LD-10}}
+
+Das System soll standardisierte Schnittstellen anbieten, damit man \enquote{nach Belieben} neue Front-Ends (Web, App, \dots) bzw. Back-Ends (Hardware, Simulation, KI, \dots) hinzufügen kann.
+Als Schnittstelle werden WebServices empfohlen (RESTful, WebSocket, \dots).
+
+
+\section[Datenformate]{Datenformate\hfill \emph{LD-20}}
+
+Die Daten sollen in standardisierten semistrukturierten Formaten (XML, JSON) ausgetauscht werden.
+
+
+\section[Datenfluss]{Datenfluss\hfill \emph{LD-30}}
+
+
+\chapter{Produktcharakteristiken}
+
+\section{Produktionsumgebung}
+
+\subsection{Hardwareumgebung}
+
+Das System und die angeschlossene Hardware sollen auch von Laien einfach installiert und in Betrieb genommen werden.
+Die genaue Charakteristik der Hardware wird im Zuge des Projekts evaluiert.
+
+
+\subsection{Softwareumgebung}
+
+Die Installation des Systems sowie der laufenden Dienste erfolgt automatisch.
+Eine Speicherung von Daten erfolgt in entsprechenden Datenbanken.
+
+
+\section{Entwicklungsumgebung}
+
+Als Entwicklungsumgebung wird die gleiche Hardware wie für die Produktion verwendet, gegebenenfalls um entsprechende Debugging-Interfaces erweitert.
+Je nach Auswahl der Hardware muss die passende Softwareumgebung evaluiert werden
+
+
+\chapter{Nichtfunktionale Anforderungen}
+
+\section[Usability / User eXperience]{Usability / User eXperience\hfill \emph{NF-010}}
+
+Das System bietet ein leicht verständliches Benutzerinterface an und ist auch von Laien einfach bedienbar.
+
+\section[Performance]{Performance\hfill \emph{NF-020}}
+
+Die Responsetime des Systems soll in angemessenen Rahmen sein; es soll eindeutig erkennbar sein, wann das System arbeitet und wann ein Vorgang abgeschlossen ist.
+
+\section[Testing]{Testing\hfill \emph{NF-030}}
+
+Das Testing wird für die einzelnen Module, die Integration der Module sowie für das gesamte System erstellt. Das Testing und deren Ergebnisse werden der Dokumentation beigelegt. Testing wird automatisch durchgeführt (CI/CD).
+
+\section[Code-Qualität]{Code-Qualität\hfill \emph{NF-040}}
+
+Ausgehend von Designideen (Versionierung) wird durch den Einsatz sinnvoller Designmuster ein endgültiges Design erstellt.
+Der Sourcecode wird gegen Veränderungen gesichert, für Erweiterungen hingegen offen sein.
+Der Sourcecode wird gut und leicht lesbar strukturiert.
+Die Namensgebung richtet sich nach den Standards des Anwendungsstack (PHP, JEE, \dots) und verwendet sinnvolle und leicht verständliche Bezeichner.
+
+\section[Dokumentation]{Dokumentation\hfill \emph{NF-050}}
+
+Der Sourcecode wird ausführlich dokumentiert.
+Die Standards des Anwendungsstack (JavaDoc, PHPDoc, Sphinx, \dots) werden im Sourcecode verwendet.
+Wichtige Stellen im Sourcecode werden ausführlicher dokumentiert.
+Ebenso werden komplexere Algorithmen mit einer genauen Dokumentation versehen.
+Zusätzlich liegt dem fertigen Sourcecode eine Dokumentation in HTML vor.
+Eine übersichtliche Dokumentation der Gesamtarchitektur liegt vor (sowohl der Implementierung als auch der \enquote{zusätzlichen Umgebung} – z.B. CI/CD).
+
+\section[Sicherheit]{Sicherheit\hfill \emph{NF-060}}
+
+Das gesamte System muss vor Angriffen geschützt sein. Dies ist hardwareseitig Roboter), softwareseitig (Schutz für klassischen Angriffen – OWASP) und netzwerkseitig (Schutz vor Netzwerkangriffen, \dots) umzusetzen.
+Der Roboter (Hardware) ist sowohl gegen unzulässige Zugriffe (und Programmierungen) abgesichert als auch gegen Verlassen des Spielfeldes (u.ä.).
+
+
+\chapter{Vertragsgegenstand}
+
+\section{Lieferumfang}
+
+Die Hardware für das System wird fertig (oder zumindest als einfacher Bausatz) ausgeliefert.
+Diese ist auch von Laien einfach zu installieren.
+Eine ausführliche Dokumentation wird mitgeliefert.
+
+Die Software kann aus den Quellen automatisch erstellt und deployed werden.
+Ausführliche Dokumentation auch in Hinsicht auf mögliche Erweiterungen bzw. Folgeprojekte.
+
+\section{Produktbezogene Leistungen}
+
+Das Produkt enthält einen Support.
+Der Betreiber der Plattform hat bei Problemen die Möglichkeit mit den Urhebern in Kontakt zu treten und Hilfestellung zu erhalten.
+Gegebenenfalls werden Software-Updates zur Verfügung gestellt.
+
+
+\chapter{Qualitätsanforderungen}
+
+Auf Funktionalität und Zuverlässigkeit wird großer Wert gelegt.
+
+\begin{itemize}
+    \item Sicherer Betrieb (hohe Verfügbarkeit, keine „üblichen“ Angriffe möglich)
+
+    \item Einfaches Deployment und Skalierung (paralleler Betrieb in Containern möglich), Verwendung von Testing (auf allen Ebenen) sowie Continuous Integration und Deployment.
+
+    \item Dokumentation insbesondere für Folgeprojekte (Architektur, Patterns, Implementierung, benötigte Umgebung, \dots)
+\end{itemize}
